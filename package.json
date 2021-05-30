@@ -1,0 +1,25 @@
+{
+  "name": "2021-1-cecd3-kimleehongcho-6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start":"node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CSID-DGU/2021-1-CECD3-KimLeeHongCho-6.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CSID-DGU/2021-1-CECD3-KimLeeHongCho-6/issues"
+  },
+  "homepage": "https://github.com/CSID-DGU/2021-1-CECD3-KimLeeHongCho-6#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "textract": "^2.5.0"
+  }
+}
