@@ -1,19 +1,20 @@
 body{
-   font-family:'Noto Sans KR', sans-serif;
+    font-family:'Noto Sans KR', sans-serif;
+ }
+ 
+ h1{
+     text-align: center;
+ }
+
+ #video_area{
+    width: 80%;
+    height: 80%;
+
+    z-index: 1;
 }
 
-h1{
-    text-align: center;
-}
-
-#video_area{
-    display: inline-block;
-    background-color: black;
-}
-
-#video_content{
-    position: relative;
-    height: 60%;
+.video_content{
+    
 }
 
 #text_area{
@@ -24,4 +25,23 @@ h1{
     left:20vw;
     color: white;
     background-color: rgba(255, 255, 255, 0.247);
+}
+
+.display-cues {
+    position: absolute; 
+  top: 80px; 
+  color: #FFF; 
+  text-align: left;
+  align-self: right;
+  font-size: 20px;
+  background-color: rgba(221, 221, 221, 0.3);
+  width: 30%;
+  height: 60%;
+  max-height: 65%;
+  z-index: 2147483647;
+  resize: both;
+  overflow-y: scroll;
+}
+.cue-active {
+    background-color: #84c9b6;
 }
