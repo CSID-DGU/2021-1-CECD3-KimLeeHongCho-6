@@ -1,13 +1,13 @@
 h1{
    text-align: center; 
-   font-family:Georgia, 'Times New Roman', Times, serif;
+   font-family:'Noto Sans KR', sans-serif;
 }
 
 #video_area{
-    width: 80%;
+    width: 60%;
     height: 80%;
     background-color: black;
 }
 #video_content{
-    max-height: 100%;
+    height: 100%;
 }
