@@ -9,9 +9,13 @@
   <body>
     <h1>자막 통합생성 시스템</h1>
     <div id="video_area">
-      <video>
-        <source type="video/mp4" src="">
+      <video id="video_content" controls>
+        <source type="video/mp4">
       </video>
+    </div>
+    <div>
+      <input type="file" id="video_file"></input>
+      <button id="video_btn" onclick="load_video();">파일 넣기</button>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="js/bootstrap.js" type="text/javascript"></script>

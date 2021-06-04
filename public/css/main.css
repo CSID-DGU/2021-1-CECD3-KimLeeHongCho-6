@@ -8,3 +8,6 @@ h1{
     height: 80%;
     background-color: black;
 }
+#video_content{
+    max-height: 100%;
+}
