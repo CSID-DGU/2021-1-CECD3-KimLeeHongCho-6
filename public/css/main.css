@@ -1,13 +1,27 @@
-h1{
-   text-align: center; 
+body{
    font-family:'Noto Sans KR', sans-serif;
 }
 
+h1{
+    text-align: center;
+}
+
 #video_area{
-    width: 60%;
-    height: 80%;
+    display: inline-block;
     background-color: black;
 }
+
 #video_content{
-    height: 100%;
+    position: relative;
+    height: 60%;
+}
+
+#text_area{
+    position: absolute;
+    width: 60vw;
+    height: 60vh;
+    top:10vh;
+    left:20vw;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.247);
 }
