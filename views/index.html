@@ -11,7 +11,7 @@
     <div id="video_area">
       <video class="video_content" id="video-1" controls>
         <source type="video/mp4">
-        <track onload="onTrackLoad(1);" id="entrack-1" label="English" kind="subtitles" srclang="ko" src="subtitle2.vtt" default>
+        <track onload="onTrackLoad(1);" class="subtitle_content" id="entrack-1" label="English" kind="subtitles" srclang="ko" default>
       </video>
     </div>
     <div id="display-cues-1" class="display-cues">
@@ -20,6 +20,10 @@
     <div>
       <input type="file" id="video_file"></input>
       <button id="video_btn" onclick="load_video();">파일 넣기</button>
+    </div>
+    <div>
+      <input type="file" id="subtitle_file"></input>
+      <button id="subtitle_btn" onclick="load_Subtitle();">자막 넣기</button>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     
