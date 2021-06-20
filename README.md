@@ -25,6 +25,7 @@
 
 
 ## 5. 실행방법
+로컬 서버를 구동하여 실행이 가능함
 ```
 git clone https://github.com/CSID-DGU/2021-1-CECD3-KimLeeHongCho-6.git
 
@@ -34,3 +35,16 @@ npm install
 
 npm start
 ```
+
+
+## 6. 진행상황
+1) 실행 시 첫 화면
+![image](https://user-images.githubusercontent.com/43579755/122675555-e9493500-d214-11eb-9293-c60976b7eabb.png)
+
+
+2) 사용자가 로컬 저장소에서 동영상 파일과 자막 파일 불러오기 가능
+![image](https://user-images.githubusercontent.com/43579755/122675583-0a118a80-d215-11eb-901d-491ac5931123.png)
+
+
+
+
