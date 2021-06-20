@@ -24,4 +24,13 @@
 ![시스템구성도](https://user-images.githubusercontent.com/43579755/122647084-703ad680-d15d-11eb-94bb-a93360878478.PNG)
 
 
-## 5. 
+## 5. 실행방법
+```
+git clone https://github.com/CSID-DGU/2021-1-CECD3-KimLeeHongCho-6.git
+
+cd 2021-1-CECD3-KimLeeHongCho-6
+
+npm install
+
+npm start
+```
