@@ -39,11 +39,15 @@ npm start
 
 ## 6. 진행상황
 1) 실행 시 첫 화면
-![image](https://user-images.githubusercontent.com/43579755/122675555-e9493500-d214-11eb-9293-c60976b7eabb.png)
+![1](https://user-images.githubusercontent.com/43579755/122676098-62498c00-d217-11eb-8605-8b367ac19337.PNG)
 
 
 2) 사용자가 로컬 저장소에서 동영상 파일과 자막 파일 불러오기 가능
-![image](https://user-images.githubusercontent.com/43579755/122675583-0a118a80-d215-11eb-901d-491ac5931123.png)
+![2](https://user-images.githubusercontent.com/43579755/122676111-6ecde480-d217-11eb-8565-7f5fe3c1b052.PNG)
+
+
+3) 동영상이 재생됨에 따라 해당되는 부분의 자막이 녹색으로 표시됨
+![3](https://user-images.githubusercontent.com/43579755/122676135-8b6a1c80-d217-11eb-8806-98a84ff41e3c.gif)
 
 
 
