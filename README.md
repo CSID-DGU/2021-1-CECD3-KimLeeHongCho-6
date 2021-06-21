@@ -67,10 +67,12 @@ npm start
 - 음성 인식 자막 파일 생성
 
 1) - 웹 표준 자막 파일 형식 vtt 자막 생성
+
 ![image](https://user-images.githubusercontent.com/62579567/122773103-02201c00-d2e3-11eb-99d8-6d47d1e8b0d7.png)
 순서, 타임 라인, 화자 인식 및 자막 텍스트까지 출력 (vtt 자막 형식)
 
 2) 자막 파일 실행 결과
+
 ![image](https://user-images.githubusercontent.com/62579567/122773441-53301000-d2e3-11eb-81a0-d92cc5ae873a.png)
 
 ## 7. 팀원
