@@ -46,6 +46,8 @@ npm start
 
 
 ## 6. 진행상황
+
+- 웹 구현
 1) 실행 시 첫 화면
 ![1](https://user-images.githubusercontent.com/43579755/122676098-62498c00-d217-11eb-8605-8b367ac19337.PNG)
 
@@ -62,6 +64,14 @@ npm start
 ![4](https://user-images.githubusercontent.com/43579755/122699747-f56cdb00-d284-11eb-9e88-51d31827e968.gif)
 
 
+- 음성 인식 자막 파일 생성
+
+1) - 웹 표준 자막 파일 형식 vtt 자막 생성
+![image](https://user-images.githubusercontent.com/62579567/122773103-02201c00-d2e3-11eb-99d8-6d47d1e8b0d7.png)
+순서, 타임 라인, 화자 인식 및 자막 텍스트까지 출력 (vtt 자막 형식)
+
+2) 자막 파일 실행 결과
+![image](https://user-images.githubusercontent.com/62579567/122773441-53301000-d2e3-11eb-81a0-d92cc5ae873a.png)
 
 ## 7. 팀원
 김윤호
