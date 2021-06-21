@@ -31,6 +31,8 @@
 
 ## 5. 실행방법
 로컬 서버를 구동하여 실행이 가능함
+   1) npm 설치
+      - https://nodejs.org/en/
 ```
 git clone https://github.com/CSID-DGU/2021-1-CECD3-KimLeeHongCho-6.git
 
