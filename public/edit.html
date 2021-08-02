@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
     <title>subtitle system</title>
   <body>
-    <h1>자막 통합생성 시스템</h1>
+    <h1>자막 통합생성 시스템...의 편집화면</h1>
     <div class="grid_container">
       <div id="video_area">
         <video class="video_content" id="video-1" controls>
@@ -20,9 +20,69 @@
       <div id="display-cues-1" class="display-cues">
         <p id="start-point-1"><p>
       </div>
-      <div id="search_area">
-        <div class="text">자막검색</div><input id="search_text" type="text">
-      </div>
+
+      <!--txt파일 불러와서 수정하고 다시 저장하는 기능-->
+        <div id="editing_area">
+            <div class="text">자막수정</div>
+
+            <input type="file" id="myFile">
+            <div id="output"></div>
+
+            <script>
+            var myFile = document.getElementById('myFile');
+            var output = document.getElementById('output');
+
+            myFile.addEventListener('change', function(e) 
+            {    
+                var files = e.target.files;
+                var file = files[0];
+                if(!file)
+                {
+                    return;
+                } 
+
+                var reader = new FileReader();
+                reader.onload = function(e) 
+                {
+                    var line = reader.result.replace(/\r\n/g,'\n').split('\n');
+                    var html = '<table border="1">';
+                    for(var i=0; i<line.length; i++) 
+                    {
+                        html += '<tr>';
+                        for(var j=0; j<1; j++) 
+                        {
+                            html += '<td>' + (i+1) + '</td><td contenteditable="true">' + line[i] + '</td>';
+                        }
+                        html += '</tr>';
+                    }
+                    html += '</table>';
+                    output.innerHTML = html;
+
+                    var btn = document.createElement('button');
+                    btn.textContent = '저장';
+
+                    btn.addEventListener('click', function(e) 
+                    {  
+                        var tbl = document.querySelector('#output table');
+                        var arr = [];
+                        for(var i=0; i<tbl.rows.length; i++) 
+                        {
+                            arr.push(tbl.rows[i].cells[1].textContent);
+                        }
+                        var txt = arr.join('\r\n');
+                        var blob = new Blob([txt], { type: 'text/plain' });
+                        var a = document.createElement('a');
+                        a.download = file.name;
+                        a.href = window.URL.createObjectURL(blob);
+                        a.click();
+                    }); 
+                    output.appendChild(btn);
+                };
+                reader.readAsText(file);
+            });
+            </script>
+        </div>
+
       <div>
         <input type="file" id="video_file"></input>
         <button id="video_btn" onclick="load_video();">동영상 넣기</button>
@@ -32,13 +92,15 @@
         <button id="subtitle_btn" onclick="load_Subtitle();">자막 넣기</button>
       </div>
 
-      <!--편집 화면으로 가는 버튼-->
+      <!--홈 화면으로 가는 버튼-->
       <div>
-        <button id="toEdit_btn" onclick="location.href='edit.html'"><img src="edit.png" width="50" height="50" alt="편집"></button> 
+        <button id="toHome_btn" onclick="location.href='index.html'"><img src="home.png" width="50" height="50" alt="편집"></button> 
       </div>
 
     </div>
 
+
+    <!--여기서부터-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>
     $(document).ready(function() 
@@ -127,7 +189,36 @@
     
     })
     </script>
-
     <script src="js/bootstrap.js" type="text/javascript"></script>
+    <!--여기까지는 index.html에 있는거랑 동일-->
+
+
+
+    <!--텍스트 파일 가져와서 웹에 보여주는 기능. 그냥 보여주기만 함 vtt파일도 가능. 쓰려면 파일선택 버튼 새로 만들어야함.
+    <script>
+        function openTextFile() 
+        {
+            var input = document.createElement("input");
+            input.type = "file";
+            input.accept = "text/plain"; // 확장자가 xxx, yyy 일때, ".xxx, .yyy"
+            input.onchange = function (event) 
+            {
+                processFile(event.target.files[0]);
+            };
+            input.click();
+        }
+
+        function processFile(file) 
+        {
+            var reader = new FileReader();
+            reader.onload = function () 
+            {
+                output.innerText = reader.result;
+            };
+            reader.readAsText(file, "utf-8");
+        }
+    </script>
+    -->
+
   </body>
 </html>

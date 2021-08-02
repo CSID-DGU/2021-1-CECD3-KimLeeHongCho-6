@@ -33,6 +33,20 @@ body{
     padding : 10px;
 }
 
+/*search_area와 동일하게 수정영역 생성*/
+#editing_area{
+    grid-column: 3/4;
+    grid-row:1/2;
+    background-color: rgb(172, 172, 172);
+    z-index: 1;
+    padding : 10px;
+    overflow-y: scroll; /*스크롤 생성*/
+}
+
+.td input:focus, .td textarea:focus{
+    outline:none;
+}
+
 .text{
     display: inline;
     margin-right: 5px;
