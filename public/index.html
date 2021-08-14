@@ -1,0 +1,175 @@
+<html>
+  <head>
+    <!--<script src ="require.js" type="text/javascript"></script>-->
+    <script src ="index.js" type="text/javascript"></script>
+    <script src="webodf.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+    <title>subtitle system</title>
+  <body>
+    <h1>자막 통합생성 시스템</h1>
+    <div class="grid_container">
+      <div id="video_area">
+        <video class="video_content" id="video-1" controls>
+          <source type="video/mp4">
+          <track onload="onTrackLoad(1);" class="subtitle_content" id="entrack-1" label="English" kind="subtitles" srclang="ko" default>
+        </video>
+      </div>
+
+      <div id="display-cues-1" class="display-cues">
+        <p id="start-point-1"><p>
+      </div>
+
+      <div id = "search_area" class="search_area">
+        <div class="text">자막검색</div><input id="search_text" type="text">
+        <button id="search_btn" onclick="onSearchLoad(1);">자막 검색</button>
+        <p id="start-search"><p></p>
+      </div>
+
+      <div>
+        <input type="file" id="video_file"></input>
+        <button id="video_btn" onclick="load_video();">동영상 넣기</button>
+      </div>
+
+      <div>
+        <input type="file" id="subtitle_file"></input>
+        <button id="subtitle_btn" onclick="load_Subtitle();">자막 넣기</button>
+      </div>
+
+      <!--편집 화면으로 가는 버튼-->
+      <div>
+        <button id="toEdit_btn" onclick="location.href='edit.html'"><img src="edit.png" width="50" height="50" alt="편집"></button> 
+      </div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() 
+    {
+    var cuesTime = [];
+    var onHover = [];
+    jumpToTime = function (video_id, t)
+    {
+      document.getElementById('video-' + video_id).currentTime = t + 0.01;
+    }
+          onTrackLoad = function(video_id)
+           {
+              var track = document.getElementById("entrack-"+video_id).track; // get text track from track element          
+              var cues = track.cues;                  
+              for (var i = 0; i < cues.length; i++) 
+              {		
+                if(i == 0)
+                {
+                  cuesTime[video_id] = [];
+                  cuesTime[video_id][i] = 0;
+                  $('#display-cues-'+video_id).append('<p onclick="jumpToTime(' + video_id + ', ' + cues[i].startTime + ')" data-start-time-video-' + video_id + '="0" class="cue-active">' + cues[i].text + '</p>');				
+                }
+                else
+                {
+                  cuesTime[video_id][i] = cues[i].startTime;
+                  $('#display-cues-'+video_id).append('<p onclick="jumpToTime(' + video_id + ', ' + cues[i].startTime + ')" data-start-time-video-' + video_id + '="' + cues[i].startTime + '">' + cues[i].text + '</p>');
+                }
+              }
+
+              onHover[video_id] = false;
+              $('#display-cues-'+video_id).scrollTop(0);
+              track.mode = "hidden"; 
+            }
+
+            onSearchLoad = function(video_id) {
+              const search = document.getElementById('search_text').value;
+              var track = document.getElementById("entrack-"+video_id).track; // get text track from track element          
+              var cues = track.cues;
+              var count = 0;
+
+              $('p').remove( '.s_text' ); //검색할 때마다, display창 지우기
+
+              if(search == ""){
+                alert("검색어를 입력하세요.");
+              }
+              else{
+                for (var i = 0; i < cues.length; i++) {
+                if(cues[i].text.includes(search)){
+                  if(i == 0){
+                    cuesTime[video_id] = [];
+                    cuesTime[video_id][i] = 0;
+                     $('#s_area').append('<p class="s_text" onclick="jumpToTime(' + video_id + ', ' + cues[i].startTime + ')" data-start-time-video-' + video_id + '="0">' + cues[i].text + '</p>');
+                     count++;				
+                  }else{
+                    cuesTime[video_id][i] = cues[i].startTime;
+                    $('#s_area').append('<p class="s_text" onclick="jumpToTime(' + video_id + ', ' + cues[i].startTime + ')" data-start-time-video-' + video_id + '="' + cues[i].startTime + '">' + cues[i].text + '</p>');
+                    count++;
+                  }
+                }
+              }
+              if(count == 0){
+                $('#s_area').append('<p class="s_text"> 해당 검색어가 포함된 자막은 존재하지 않습니다. </p>');
+              }
+            }
+            onHover[video_id] = false;
+            $('#s_area').scrollTop(0);
+          }
+
+          $(".video_content").on
+          (
+              "timeupdate",
+              function(event) 
+              {
+                var video_id = (this.id).substring(6);
+                //console.log(video_id);
+                 var currentTime = this.currentTime;
+                 
+        
+                var cueTimeCurrent = 0;
+                for (var i = 0; i < cuesTime[video_id].length; i++) 
+                {
+                  if((currentTime - cuesTime[video_id][i]) <= 0)
+                  {
+                    cueTimeCurrent = cuesTime[video_id][i-1];
+                    break;
+                  }
+                  cueTimeCurrent = cuesTime[video_id][i];
+                }
+
+                if(currentTime == 0)
+                {
+                  cueTimeCurrent = 0;
+                }
+        
+                $('#display-cues-' + video_id + ' .cue-active').removeClass('cue-active');
+                $('#s_area').removeClass('cue-active');
+
+                $('[data-start-time-video-' + video_id + '="' + cueTimeCurrent + '"]').addClass('cue-active');
+        
+                var offsetTop = $('[data-start-time-video-' + video_id + '="' + cueTimeCurrent + '"]').offset().top - $('#start-point-'+video_id).offset().top;
+                if(!onHover[video_id])
+                {
+                  $('#display-cues-' + video_id).scrollTop(offsetTop - 150);
+                }
+                //console.log(offsetTop);
+              }
+            );
+    
+        $('.display-cues').hover
+        (
+            function(event)
+            {
+                var video_id = (this.id).substring(13);
+                onHover[video_id] = true;
+            }, 
+            function ()
+            {
+                var video_id = (this.id).substring(13);
+                onHover[video_id] = false;
+            }
+        )
+    
+    })
+    </script>
+
+    <script src="js/bootstrap.js" type="text/javascript"></script>
+  </body>
+</html>
