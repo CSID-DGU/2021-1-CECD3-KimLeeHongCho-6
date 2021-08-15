@@ -11,13 +11,19 @@ app.engine('html',require('ejs').renderFile);
 app.use(fileUpload());
 
 app.post('/upload', function (req, res) {
-    console.log(req.files.upload_file.mimetype)
-    var file = req.files.upload_file
+    var file = req.files.upload_file;
     textract.fromBufferWithMime(file.mimetype, file.data, function (error, text) {
-        console.log(text)
+        res.json({"text":text})
      })
 });
 
+app.post('/auto_subtitle', function (req, res) {
+    console.log(req.files.upload_file.mimetype);
+    var file = req.files.upload_file;
+    textract.fromBufferWithMime(file.mimetype, file.data, function (error, text) {
+        console.log(text)
+    })
+});
 
 var server = app.listen(3000,function(){
     console.log("Express server has started on port 3000")
