@@ -6,7 +6,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
     <title>subtitle system</title>
   <body>
-    <h1>자막 통합생성 시스템</h1>
+    <div id="title_container">
+      <h1>자막 통합생성 시스템</h1>
+      <div>
+        <button id="toHome_btn" onclick="location.href='/'"><img src="src/home.png" width="50" height="50" alt="홈"></button>
+        <button id="toPlay_btn" onclick="location.href='play'"><img src="src/play.png" width="50" height="50" alt="재생"></button>
+        <button id="toEdit_btn" onclick="location.href='edit'"><img src="src/edit.png" width="50" height="50" alt="편집"></button>
+      </div>
+    </div>
     <div class="grid_container">
       <div id="video_area">
         <video class="video_content" id="video-1" controls>
@@ -14,28 +21,27 @@
           <track onload="onTrackLoad(1);" class="subtitle_content" id="entrack-1" label="English" kind="subtitles" srclang="ko" default>
         </video>
       </div>
-      <div id="display-cues-1" class="display-cues">
+      <!--<div id="display-cues-1" class="display-cues">
         <p id="start-point-1"><p>
-      </div>
-      <div id="search_area">
-        <div class="text">자막검색</div><input id="search_text" type="text">
-      </div>
-      <div>
-        <input type="file" id="video_file"></input>
-        <button id="video_btn" onclick="load_video();">동영상 넣기</button>
-      </div>
-      <div>
-        <input type="file" id="subtitle_file"></input>
-        <button id="subtitle_btn" onclick="load_Subtitle();">자막 넣기</button>
-      </div>
+      </div>-->
+      <div id="bar_area">
+        <div class="filebox">
+          <label for="video_file">동영상</label>
+          <input type="file" id="video_file"></input>
 
-      <!--편집 화면으로 가는 버튼-->
-      <div>
-        <button id="toEdit_btn" onclick="location.href='edit'"><img src="src/edit.png" width="50" height="50" alt="편집"></button> 
+          <label for="subtitle_file">자막</label>
+          <input type="file" id="subtitle_file"></input>
+
+          <form method='post' action='upload' enctype="multipart/form-data"></form>
+          <label for="upload_file">ODF 파일</label>
+          <input type='file' id='upload_file' name='upload_file'>
+        </div>
       </div>
-        <form method='post' action='upload' enctype="multipart/form-data"></form>
-        <input type='file' name='upload_file' id='upload'>
-        <input type='submit'>
+      
+      <!--<form method='post' action='upload' enctype="multipart/form-data"></form>
+      <input type='file' name='upload_file' id='upload'>
+      <input type='submit'>-->
+
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

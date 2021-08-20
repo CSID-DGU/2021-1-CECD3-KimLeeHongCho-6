@@ -1,14 +1,16 @@
-function load_video(){
-    var video_file = document.getElementById("video_file").files[0];
+var video_bnt = document.getElementById('video_file');
+video_bnt.addEventListener('change', function (){
+    var video_file = video_bnt.files[0];
     var video_content = document.getElementById("video-1");
     video_content.src = window.URL.createObjectURL(video_file);
-}
+})
 
-function load_Subtitle(){
-    var subtitle_file = document.getElementById("subtitle_file").files[0];
+var subtitle_bnt = document.getElementById('subtitle_file')
+subtitle_bnt.addEventListener('change',function(){
+    var subtitle_file = subtitle_bnt.files[0];
     var subtitle_content = document.getElementById("entrack-1");
     subtitle_content.src = window.URL.createObjectURL(subtitle_file);
-}
+})
 
 $(document).ready(function () {
     var cuesTime = [];
@@ -79,10 +81,11 @@ $(document).ready(function () {
                 var video_id = (this.id).substring(13);
                 onHover[video_id] = false;
             }
-        )
-    
-    $("input[type=submit]").click(function () {
-        files = $("#upload")[0];
+        );
+
+
+    $("#upload_file").on('change', function () {
+        files = $("#upload_file")[0];
         var formData = new FormData();
         formData.append("upload_file", files.files[0])
         $.ajax({
@@ -101,3 +104,5 @@ $(document).ready(function () {
         })
     });
 })
+
+

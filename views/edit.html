@@ -7,7 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
     <title>subtitle system</title>
   <body>
-    <h1>자막 통합생성 시스템...의 편집화면</h1>
+    <div id='title_container'>
+      <h1>subtitle edit page</h1>
+      <div>
+        <button id="toHome_btn" onclick="location.href='/'"><img src="src/home.png" width="50" height="50" alt="홈"></button>
+        <button id="toPlay_btn" onclick="location.href='play'"><img src="src/play.png" width="50" height="50" alt="재생"></button>
+        <button id="toEdit_btn" onclick="location.href='edit'"><img src="src/edit.png" width="50" height="50" alt="편집"></button>
+      </div>
+    </div>
     <div class="grid_container">
       <div id="video_area">
         <video class="video_content" id="video-1" controls>
@@ -22,7 +29,6 @@
       <!--txt파일 불러와서 수정하고 다시 저장하는 기능-->
         <div id="editing_area">
             <div class="text">자막수정</div>
-
             <input type="file" id="myFile">
             <div id="output"></div>
         </div>
@@ -35,15 +41,6 @@
         <input type="file" id="subtitle_file"></input>
         <button id="subtitle_btn" onclick="load_Subtitle();">자막 넣기</button>
       </div>
-
-      <!--홈 화면으로 가는 버튼-->
-      <div>
-        <button id="toHome_btn" onclick="location.href='/'"><img src="src/home.png" width="50" height="50" alt="홈"></button> 
-      </div>
-      <div>
-        <button id="toPlay_btn" onclick="location.href='/play'"><img src="src/home.png" width="50" height="50" alt="홈"></button>
-      </div>
-
     </div>
 
 
