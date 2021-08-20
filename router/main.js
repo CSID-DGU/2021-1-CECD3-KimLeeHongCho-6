@@ -3,8 +3,8 @@ module.exports = function (app) {
         res.render('index.html')
     });
 
-    app.get('/about', function (req, res) {
-        res.render('about.html');
+    app.get('/play', function (req, res) {
+        res.render('play.html');
     });
 
     app.get('/edit', function (req, res) {
