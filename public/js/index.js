@@ -96,7 +96,7 @@ $(document).ready(function () {
             data: formData,
             success: function (rtn) {
                 const message = rtn.text;
-                console.log("message: ", message)
+                $("#odf_area").text(message)
             },
             err: function (err) {
                 console.log("err:", err)
