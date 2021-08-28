@@ -1,24 +1,51 @@
+html{font-size: 10px;}
+
 body{
-    font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: rgb(225, 235, 255);
  }
  
 #title_container{
     display:flex;
     flex-direction: row;
     justify-content: space-between;
+    background-color: rgb(92, 102, 145);
+    padding:10px;
 }
 
-h1{
+.title{
      text-align: left;
-     font-weight: bold;
-     font-size: 20px;
-     margin-left:5vw;
-     display:block;
+     font-weight:500;
+     color:rgb(255, 255, 255);
+     font-size: 3rem;
+     margin-left:1vw;
+     display:inline;
  }
+ .menu{
+    margin-top: .5px;
+ }
+.menu button{
+    background-color : white;
+    margin-right: -3px;
+    border:0px solid skyblue;
+    color:skyblue;
+    padding: 5px;
+    width: 150px;
+    font-size: 1.5rem;
+}
+.menu button:hover{
+    filter: invert(20%) sepia(14%) saturate(2311%) hue-rotate(173deg) brightness(98%) contrast(96%);
+}
+
+ .filter-blue{
+    filter: invert(84%) sepia(46%) saturate(2717%) hue-rotate(184deg) brightness(102%) contrast(101%);
+}
+
  .grid_container{
      display: grid;
      grid-template-columns: 40vw 40vw 20vw;
      grid-template-rows: 80vh 50px 50px;
+     width: 100vw;
  }
 
  #video_area{
@@ -37,20 +64,15 @@ h1{
 #bar_area{
     grid-column: 3/4;
     grid-row:1/2;
-    background-color: rgb(172, 172, 172);
+    background-color: rgb(166, 167, 179);
     z-index: 1;
-    padding : 10px;
+    padding: 10px;
+    max-width: 100%;
+    overflow-y: scroll
 }
 
 /*search_area와 동일하게 수정영역 생성*/
-#editing_area{
-    grid-column: 3/4;
-    grid-row:1/2;
-    background-color: rgb(172, 172, 172);
-    z-index: 1;
-    padding : 10px;
-    overflow-y: scroll; /*스크롤 생성*/
-}
+
 
 .td input:focus, .td textarea:focus{
     outline:none;

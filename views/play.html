@@ -3,18 +3,18 @@
     <!--<script src ="require.js" type="text/javascript"></script>-->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <title>subtitle system</title>
   <body>
     <div id="title_container">
-      <h1>subtitle player</h1>
-        <div>
-          <button id="toHome_btn" onclick="location.href='/'"><img src="src/home.png" width="50" height="50" alt="홈"></button>
-          <button id="toPlay_btn" onclick="location.href='play'"><img src="src/play.png" width="50" height="50" alt="재생"></button>
-          <button id="toEdit_btn" onclick="location.href='edit'"><img src="src/edit.png" width="50" height="50" alt="편집"></button>
-          
-        </div>
+      <div class=title><img src="src/closed-captioning-solid.svg" class="filter-blue"  style="margin-right: 1vw;" width="50" height="50">자막 통합생성 시스템</div>
+      <div class=menu>
+        <button id="toHome_btn" onclick="location.href='/'"><img class="filter-blue menu_img" src="src/home.png" width="30" height="30" alt="홈">Home</button>
+        <button id="toPlay_btn" onclick="location.href='play'"><img class="filter-blue menu_img" src="src/play.svg" width="30" height="30" alt="재생">Player</button>
+        <button id="toEdit_btn" onclick="location.href='edit'"><img class="filter-blue menu_img" src="src/edit.png" width="30" height="30" alt="편집">Editer</button>
+      </div>
     </div>
     <div class="grid_container">
       <div id="video_area">
