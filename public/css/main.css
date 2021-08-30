@@ -58,7 +58,7 @@ body{
 .grid_container{
     display: grid;
     grid-template-columns: 40vw 40vw 20vw;
-    grid-template-rows: 80vh 50px 50px;
+    grid-template-rows: 80vh 8vh;
     width: 100vw;
 }
 
@@ -78,7 +78,7 @@ body{
 #bar_area{
     grid-column: 3/4;
     grid-row:1/2;
-    background-color: rgb(166, 167, 179);
+    background-color: rgba(115, 117, 139, 0.918);
     z-index: 1;
     padding: 10px;
     max-width: 100%;
@@ -103,20 +103,20 @@ body{
 }
 
 .display-cues {
-position: absolute; 
-  top: 80px; 
-  color: #FFF; 
-  text-align: left;
-  align-self: right;
-  font-size: 20px;
-  background-color: rgba(221, 221, 221, 0.452);
-  width: 30%;
-  max-width : 80vw;
-  height: 70vh;
-  max-height: 70vh;
-  z-index: 2147483647;
-  resize: both;
-  overflow-y: scroll;
+    position: absolute; 
+    top: 12vh; 
+    color: #FFF; 
+    text-align: left;
+    align-self: right;
+    font-size: 20px;
+    background-color: rgba(221, 221, 221, 0.452);
+    width: 30%;
+    max-width : 80vw;
+    height: 70vh;
+    max-height: 70vh;
+    z-index: 2147483647;
+    resize: both;
+    overflow-y: scroll;
 }
 .cue-active {
     background-color: #84c9b6;
