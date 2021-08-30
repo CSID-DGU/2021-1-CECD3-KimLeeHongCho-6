@@ -27,32 +27,42 @@ body{
 .menu button{
     background-color : white;
     margin-right: -3px;
-    border:0px solid skyblue;
-    color:skyblue;
+    border:0px solid rgb(92, 102, 145);
+    color:rgb(92, 102, 145);
     padding: 5px;
     width: 150px;
     font-size: 1.5rem;
 }
 .menu button:hover{
-    filter: invert(20%) sepia(14%) saturate(2311%) hue-rotate(173deg) brightness(98%) contrast(96%);
+    background-color: #4a6e94;
+    color:white;
+
 }
 
- .filter-blue{
+.menu img{
+    filter: invert(39%) sepia(62%) saturate(270%) hue-rotate(190deg) brightness(89%) contrast(90%);
+}
+
+.menu img:hover{
+    filter: invert(97%) sepia(0%) saturate(0%) hue-rotate(60deg) brightness(103%) contrast(103%);
+}
+
+.filter-blue{
     filter: invert(84%) sepia(46%) saturate(2717%) hue-rotate(184deg) brightness(102%) contrast(101%);
 }
 
- .grid_container{
-     display: grid;
-     grid-template-columns: 40vw 40vw 20vw;
-     grid-template-rows: 80vh 50px 50px;
-     width: 100vw;
- }
+.grid_container{
+    display: grid;
+    grid-template-columns: 40vw 40vw 20vw;
+    grid-template-rows: 80vh 50px 50px;
+    width: 100vw;
+}
 
- #video_area{
-    grid-column: 1/3;
-    grid-row:1/2;
-    background-color: black;
-    z-index: 1;
+#video_area{
+grid-column: 1/3;
+grid-row:1/2;
+background-color: black;
+z-index: 1;
 }
 
 .video_content{
