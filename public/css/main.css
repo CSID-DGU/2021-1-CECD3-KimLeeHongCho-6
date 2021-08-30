@@ -71,6 +71,18 @@ body{
     overflow-y: scroll
 }
 
+.search_area{
+    grid-column: 3/4;
+    grid-row:1/2;
+    background-color: rgb(172, 172, 172);
+    z-index: 1;
+    padding : 10px;
+
+    text-align: left;
+  align-self: right;
+  overflow-y: scroll;
+}
+
 /*search_area와 동일하게 수정영역 생성*/
 
 
