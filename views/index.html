@@ -10,9 +10,9 @@
     <div id="title_container">
       <div class=title><img src="src/closed-captioning-solid.svg" class="filter-blue" style="margin-right: 1vw;" width="50" height="50">자막 통합생성 시스템</div>
       <div class=menu>
-        <button id="toHome_btn" onclick="location.href='/'"><img class="filter-blue menu_img" src="src/home.png" width="30" height="30" alt="홈">Home</button>
-        <button id="toPlay_btn" onclick="location.href='play'"><img class="filter-blue menu_img" src="src/play.svg" width="30" height="30" alt="재생">Player</button>
-        <button id="toEdit_btn" onclick="location.href='edit'"><img class="filter-blue menu_img" src="src/edit.png" width="30" height="30" alt="편집">Editer</button>
+        <button id="toHome_btn" onclick="location.href='/'"><img class="menu_img" src="src/home.png" width="30" height="30" alt="홈"> Home</button>
+        <button id="toPlay_btn" onclick="location.href='play'" ><img class="menu_img" src="src/play.svg" width="30" height="30" alt="재생"> Player</button>
+        <button id="toEdit_btn" onclick="location.href='edit'" ><img class="menu_img" src="src/edit.png" width="30" height="30" alt="편집"> Editer</button>
       </div>
     </div>
     <div class="grid_container">
@@ -37,12 +37,16 @@
           <label for="upload_file">ODF 파일</label>
           <input type='file' id='upload_file' name='upload_file'>
         </div>
-      </div>
-      
-      <!--<form method='post' action='upload' enctype="multipart/form-data"></form>
-      <input type='file' name='upload_file' id='upload'>
-      <input type='submit'>-->
+        <div id=sub_container>
+          <div id=auto_bnt><div>auto</div></div>
+          <div id=odf_bnt>odf</div>
+          <div id=user_bnt>user</div>
 
+          <div id=auto_sub></div>
+          <div id=odf_sub></div>
+          <div id=user_sub></div>
+        </div>
+      </div>
     </div>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
