@@ -52,14 +52,18 @@ $(document).ready(function () {
         else{
           for (var i = 0; i < cues.length; i++) {
           if(cues[i].text.includes(search)){
+            var subt = cues[i].text;
+            var regex = new RegExp(search, "g");
+            subt = subt.replace(regex, "<span class='highlight'>" + search + "</span>"); // highlight class
+
             if(i == 0){
               cuesTime[video_id] = [];
               cuesTime[video_id][i] = 0;
-               $('#s_area').append('<p class="s_text" onclick="jumpToTime(' + video_id + ', ' + cues[i].startTime + ')" data-start-time-video-' + video_id + '="0">' + cues[i].text + '</p>');
+               $('#s_area').append('<p class="s_text" onclick="jumpToTime(' + video_id + ', ' + cues[i].startTime + ')" sub-data-start-time-video-' + video_id + '="0">' + subt + '</p>');
                count++;				
             }else{
               cuesTime[video_id][i] = cues[i].startTime;
-              $('#s_area').append('<p class="s_text" onclick="jumpToTime(' + video_id + ', ' + cues[i].startTime + ')" data-start-time-video-' + video_id + '="' + cues[i].startTime + '">' + cues[i].text + '</p>');
+              $('#s_area').append('<p class="s_text" onclick="jumpToTime(' + video_id + ', ' + cues[i].startTime + ')" sub-data-start-time-video-' + video_id + '="' + cues[i].startTime + '">' + subt + '</p>');
               count++;
             }
           }

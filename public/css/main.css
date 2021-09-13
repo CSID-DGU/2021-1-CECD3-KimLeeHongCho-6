@@ -230,3 +230,8 @@ body{
     color :white;
 
 }
+
+.highlight{ 
+    font-weight : bold; 
+    color:#FF0000; 
+}
