@@ -134,14 +134,42 @@ $(document).ready(function () {
             data: formData,
             success: function (rtn) {
                 const message = rtn.text;
-                console.log("message: ", message)
+                var output = document.getElementById('odf_area');
+                var line = message.replace(/\r\n/g, '\n').split('\n');
+                var html = '<table border="1">';
+                for (var i = 0; i < line.length; i++) {
+                    html += '<tr>';
+                    for (var j = 0; j < 1; j++) {
+                        html += '<td>' + (i + 1) + '</td><td contenteditable="true">' + line[i] + '</td>';
+                    }
+                    html += '</tr>';
+                }
+                html += '</table>';
+                output.innerHTML = html;
+        
+                var btn = document.createElement('button');
+                btn.textContent = '저장';
+        
+                btn.addEventListener('click', function (e) {
+                    var tbl = document.querySelector('#output table');
+                    var arr = [];
+                    for (var i = 0; i < tbl.rows.length; i++) {
+                        arr.push(tbl.rows[i].cells[1].textContent);
+                    }
+                    var txt = arr.join('\r\n');
+                    var blob = new Blob([txt], { type: 'text/plain' });
+                    var a = document.createElement('a');
+                    a.download = file.name;
+                    a.href = window.URL.createObjectURL(blob);
+                    a.click();
+                });
+                output.appendChild(btn);
             },
             err: function (err) {
                 console.log("err:", err)
             }
         })
     });
-
 
    
 });
@@ -163,3 +191,4 @@ $('#toEdit_btn').hover(function(){
 },function(){
     $(this).children('img').css("filter", "invert(39%) sepia(62%) saturate(270%) hue-rotate(190deg) brightness(89%) contrast(90%)");
 });
+
