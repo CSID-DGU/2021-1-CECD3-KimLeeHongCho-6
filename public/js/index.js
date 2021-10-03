@@ -38,6 +38,44 @@ $(document).ready(function () {
         track.mode = "hidden";
     }
 
+    onSearchLoad = function(video_id) {
+        const search = document.getElementById('search_text').value;
+        var track = document.getElementById("entrack-"+video_id).track; // get text track from track element          
+        var cues = track.cues;
+        var count = 0;
+
+        $('p').remove( '.s_text' ); //검색할 때마다, display창 지우기
+
+        if(search == ""){
+          alert("검색어를 입력하세요.");
+        }
+        else{
+          for (var i = 0; i < cues.length; i++) {
+          if(cues[i].text.includes(search)){
+            var subt = cues[i].text;
+            var regex = new RegExp(search, "g");
+            subt = subt.replace(regex, "<span class='highlight'>" + search + "</span>"); // highlight class
+
+            if(i == 0){
+              cuesTime[video_id] = [];
+              cuesTime[video_id][i] = 0;
+               $('#s_area').append('<p class="s_text" onclick="jumpToTime(' + video_id + ', ' + cues[i].startTime + ')" sub-data-start-time-video-' + video_id + '="0">' + subt + '</p>');
+               count++;				
+            }else{
+              cuesTime[video_id][i] = cues[i].startTime;
+              $('#s_area').append('<p class="s_text" onclick="jumpToTime(' + video_id + ', ' + cues[i].startTime + ')" sub-data-start-time-video-' + video_id + '="' + cues[i].startTime + '">' + subt + '</p>');
+              count++;
+            }
+          }
+        }
+        if(count == 0){
+          $('#s_area').append('<p class="s_text"> 해당 검색어가 포함된 자막은 존재하지 않습니다. </p>');
+        }
+      }
+      onHover[video_id] = false;
+      $('#s_area').scrollTop(0);
+    }
+
     $(".video_content").on
         (
             "timeupdate",
@@ -132,5 +170,25 @@ $(document).ready(function () {
             }
         })
     });
-})
+
+   
+});
+
+$('#toHome_btn').hover(function(){
+    $(this).children('img').css("filter","invert(97%) sepia(0%) saturate(0%) hue-rotate(60deg) brightness(103%) contrast(103%)");
+},function(){
+    $(this).children('img').css("filter", "invert(39%) sepia(62%) saturate(270%) hue-rotate(190deg) brightness(89%) contrast(90%)");
+});
+
+$('#toPlay_btn').hover(function(){
+    $(this).children('img').css("filter","invert(97%) sepia(0%) saturate(0%) hue-rotate(60deg) brightness(103%) contrast(103%)");
+},function(){
+    $(this).children('img').css("filter", "invert(39%) sepia(62%) saturate(270%) hue-rotate(190deg) brightness(89%) contrast(90%)");
+});
+
+$('#toEdit_btn').hover(function(){
+    $(this).children('img').css("filter","invert(97%) sepia(0%) saturate(0%) hue-rotate(60deg) brightness(103%) contrast(103%)");
+},function(){
+    $(this).children('img').css("filter", "invert(39%) sepia(62%) saturate(270%) hue-rotate(190deg) brightness(89%) contrast(90%)");
+});
 
