@@ -130,7 +130,7 @@ $(document).ready(function () {
             data: formData,
             success: function (rtn) {
                 const message = rtn.text;
-                var output = document.getElementById('odf_area');
+                var output = document.getElementById('sub');
                 var line = message.replace(/\r\n/g, '\n').split('\n');
                 var html = '<table border="1">';
                 for (var i = 0; i < line.length; i++) {
