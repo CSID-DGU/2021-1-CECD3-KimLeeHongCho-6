@@ -160,7 +160,8 @@ $(document).ready(function () {
                 const message = rtn.text;
                 var output = document.getElementById('odf_area');
                 var line = message.replace(/\r\n/g, '\n').split('\n');
-                var html = '<table border="1" style="width:100%" >';
+                
+                var html = '<button name="time" onclick=time_stamp(1);">시간입력</button><table border="1" style="width:100%" >';
                 for (var i = 1; i < (line.length *2); i+=2) {
                     html += '<tr><td>' + i + '</td><td contenteditable="true"></td>';
                     if(line[(i+1)/2]!=undefined){

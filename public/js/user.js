@@ -66,3 +66,16 @@ function download() {
             a.href = window.URL.createObjectURL(blob);
             a.click();
 }
+
+function time_stamp(td_id){
+    var time = document.getElementById('video-1').currentTime;
+    var td = $(this);
+    
+    var hour = parseInt(time/3600) < 10 ? '0'+ parseInt(time/3600) : parseInt(time/3600); 
+    var min = parseInt((time%3600)/60) < 10 ? '0'+ parseInt((time%3600)/60) : parseInt((time%3600)/60);
+    var sec = time % 60 < 10 ? '0'+time % 60 : time % 60;
+    var s_sec = ''+sec;
+    
+
+    td.textContent = hour+":"+min+":" + s_sec.substr(0,6) +" --> ";
+}
