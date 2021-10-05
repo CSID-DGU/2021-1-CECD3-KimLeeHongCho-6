@@ -130,15 +130,16 @@ $(document).ready(function () {
             data: formData,
             success: function (rtn) {
                 const message = rtn.text;
-                var output = document.getElementById('sub');
+                var output = document.getElementById('odf_area');
                 var line = message.replace(/\r\n/g, '\n').split('\n');
-                var html = '<table border="1">';
-                for (var i = 0; i < line.length; i++) {
-                    html += '<tr>';
-                    for (var j = 0; j < 1; j++) {
-                        html += '<td>' + (i + 1) + '</td><td contenteditable="true">' + line[i] + '</td>';
+                var html = '<table border="1" style="width:100%" >';
+                for (var i = 1; i < (line.length *2); i+=2) {
+                    html += '<tr><td>' + i + '</td><td contenteditable="true"></td>';
+                    if(line[(i+1)/2]!=undefined){
+                        html += '<tr>'
+                        html += '<td>' + (i + 1) + '</td><td contenteditable="true">' + line[(i+1)/2] + '</td>';
+                        html += '</tr>';
                     }
-                    html += '</tr>';
                 }
                 html += '</table>';
                 output.innerHTML = html;
@@ -147,7 +148,7 @@ $(document).ready(function () {
                 btn.textContent = '저장';
         
                 btn.addEventListener('click', function (e) {
-                    var tbl = document.querySelector('#output table');
+                    var tbl = document.querySelector('#odf_area table');
                     var arr = [];
                     for (var i = 0; i < tbl.rows.length; i++) {
                         arr.push(tbl.rows[i].cells[1].textContent);
@@ -155,7 +156,7 @@ $(document).ready(function () {
                     var txt = arr.join('\r\n');
                     var blob = new Blob([txt], { type: 'text/plain' });
                     var a = document.createElement('a');
-                    a.download = file.name;
+                    a.download = 'odf.vtt'
                     a.href = window.URL.createObjectURL(blob);
                     a.click();
                 });
@@ -188,3 +189,21 @@ $('#toEdit_btn').hover(function(){
 },function(){
     $(this).children('img').css("filter", "invert(39%) sepia(62%) saturate(270%) hue-rotate(190deg) brightness(89%) contrast(90%)");
 });
+
+$('#auto_bnt').click(function(){
+    $('#auto_area').css("display","block");
+    $('#odf_area').css("display",'none');
+    $('#user_area').css("display","none");
+})
+
+$('#odf_bnt').click(function(){
+    $('#auto_area').css("display","none");
+    $('#odf_area').css("display",'block');
+    $('#user_area').css("display","none");
+})
+
+$('#user_bnt').click(function(){
+    $('#auto_area').css("display","none");
+    $('#odf_area').css("display",'none');
+    $('#user_area').css("display","block");
+})
