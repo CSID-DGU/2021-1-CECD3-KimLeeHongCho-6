@@ -158,7 +158,37 @@ $(document).ready(function () {
             data: formData,
             success: function (rtn) {
                 const message = rtn.text;
-                console.log("message: ", message)
+                var output = document.getElementById('odf_area');
+                var line = message.replace(/\r\n/g, '\n').split('\n');
+                var html = '<table border="1" style="width:100%" >';
+                for (var i = 1; i < (line.length *2); i+=2) {
+                    html += '<tr><td>' + i + '</td><td contenteditable="true"></td>';
+                    if(line[(i+1)/2]!=undefined){
+                        html += '<tr>'
+                        html += '<td>' + (i + 1) + '</td><td contenteditable="true">' + line[(i+1)/2] + '</td>';
+                        html += '</tr>';
+                    }
+                }
+                html += '</table>';
+                output.innerHTML = html;
+        
+                var btn = document.createElement('button');
+                btn.textContent = '저장';
+        
+                btn.addEventListener('click', function (e) {
+                    var tbl = document.querySelector('#odf_area table');
+                    var arr = [];
+                    for (var i = 0; i < tbl.rows.length; i++) {
+                        arr.push(tbl.rows[i].cells[1].textContent);
+                    }
+                    var txt = arr.join('\r\n');
+                    var blob = new Blob([txt], { type: 'text/plain' });
+                    var a = document.createElement('a');
+                    a.download = 'odf.vtt'
+                    a.href = window.URL.createObjectURL(blob);
+                    a.click();
+                });
+                output.appendChild(btn);
             },
             err: function (err) {
                 console.log("err:", err)
@@ -166,8 +196,6 @@ $(document).ready(function () {
         })
     });
 
-
-   
 });
 
 $('#toHome_btn').hover(function(){
@@ -193,3 +221,23 @@ $('#toUser_btn').hover(function(){
 },function(){
     $(this).children('img').css("filter", "invert(39%) sepia(62%) saturate(270%) hue-rotate(190deg) brightness(89%) contrast(90%)");
 });
+
+
+$('#auto_bnt').click(function(){
+    $('#auto_area').css("display","block");
+    $('#odf_area').css("display",'none');
+    $('#user_area').css("display","none");
+})
+
+$('#odf_bnt').click(function(){
+    $('#auto_area').css("display","none");
+    $('#odf_area').css("display",'block');
+    $('#user_area').css("display","none");
+})
+
+$('#user_bnt').click(function(){
+    $('#auto_area').css("display","none");
+    $('#odf_area').css("display",'none');
+    $('#user_area').css("display","block");
+})
+

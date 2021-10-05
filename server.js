@@ -12,7 +12,7 @@ app.use(fileUpload());
 
 app.post('/upload', function (req, res) {
     var file = req.files.upload_file;
-    textract.fromBufferWithMime(file.mimetype, file.data, function (error, text) {
+    textract.fromBufferWithMime(file.mimetype, file.data,{preserveLineBreaks:true}, function (error, text) {
         res.json({"text":text})
      })
 });
