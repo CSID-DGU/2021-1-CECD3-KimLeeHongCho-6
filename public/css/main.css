@@ -236,3 +236,9 @@ body{
     grid-row:2/3;
     background-color: rgba(226, 231, 241, 0.877);
 }
+
+
+.highlight{ 
+    font-weight : bold; 
+    color:#FF0000; 
+}
