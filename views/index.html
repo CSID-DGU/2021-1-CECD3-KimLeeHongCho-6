@@ -45,7 +45,18 @@
           <div id=sub>
             <div id=auto_area></div>
             <div id=odf_area></div>
-            <div id=user_area></div>
+            <div id=user_area>
+              <div id="output">
+              <table id="user_sub" border="1">
+                <tr name='user_tr' id='tr_time_1'><td>타임라인</td> 
+                <td name="time" id="td_1" contenteditable="true">시간 입력</td>><td><button name="start" onclick="s_time(1);">시작시간</button><button name="end" onclick="e_time(1);">종료시간</button></td>
+              </tr>
+                <tr name='user_tr' id='tr_sub_1'><td>자막</td> <td contenteditable="true">자막 입력</td></tr>
+              </table>
+              <input type='button' value='행추가' onclick='addRow()' />
+              <input type='button' value='저장' onclick='download()' />
+            </div>
+            </div>
           </div>
 
         </div>
@@ -54,5 +65,6 @@
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="js/index.js" type="text/javascript"></script>
+  <script src="js/user.js" type="text/javascript"></script>
   <script src="js/bootstrap.js" type="text/javascript"></script>
 </html>
