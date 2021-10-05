@@ -15,7 +15,7 @@ myFile.addEventListener('change', function (e) {
         for (var i = 0; i < line.length; i++) {
             html += '<tr>';
             for (var j = 0; j < 1; j++) {
-                html += '<td>' + (i + 1) + '</td><td contenteditable="true">' + line[i] + '</td>';
+                html += '<td>' + (i + 1) + '</td><contenteditable="true">' + line[i] + '</td>';
             }
             html += '</tr>';
         }
