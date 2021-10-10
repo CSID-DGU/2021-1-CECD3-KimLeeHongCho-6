@@ -1,8 +1,13 @@
 var express = require('express');
 var fileUpload = require('express-fileupload')
 var textract = require('textract')
+var bodyParser = require('body-parser')
 var app = express();
 var router = require('./router/main')(app);
+const spawn = require('child_process').spawn;
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:true}))
 
 app.set('views',__dirname+'/views');
 app.set('view engine','ejs');
@@ -18,12 +23,19 @@ app.post('/upload', function (req, res) {
 });
 
 app.post('/auto_subtitle', function (req, res) {
-    console.log(req.files.upload_file.mimetype);
-    var file = req.files.upload_file;
-    textract.fromBufferWithMime(file.mimetype, file.data, function (error, text) {
-        console.log(text)
+    var params = req.body.src;
+    console.log(params)
+    const result = spawn('python',['public/test.py', params]);
+
+    result.stdout.on('data',function(data){
+        console.log(data.toString())
     })
+
+    result.stderr.on('data', function(data) {
+        console.log(data.toString()); 
+    });
 });
+
 
 var server = app.listen(3000,function(){
     console.log("Express server has started on port 3000")

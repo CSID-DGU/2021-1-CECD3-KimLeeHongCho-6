@@ -4,6 +4,18 @@ video_bnt.addEventListener('change', function (){
     var video_file = video_bnt.files[0];
     var video_content = document.getElementById("video-1");
     video_content.src = window.URL.createObjectURL(video_file);
+
+    $.ajax({
+        type : "POST",            
+        url : "/auto_subtitle",     
+        data : {
+            'src' : video_file.name
+        },
+        dataType: 'JSON',            
+        success : function(res){ //
+            console.log("success");
+        }
+    })
 })
 
 var subtitle_bnt = document.getElementById('subtitle_file')
