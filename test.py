@@ -1,7 +1,6 @@
 import requests
-
 import json
-
+import sys
 
 class ClovaSpeechClient:
     # Clova Speech invoke URL
@@ -94,9 +93,10 @@ class ClovaSpeechClient:
 
 
 if __name__ == '__main__':
-    # res = ClovaSpeechClient().req_url(url='http://example.com/media.mp3', completion='sync')
+    #res = ClovaSpeechClient().req_url(url=sys.argv[1], completion='sync')
     # res = ClovaSpeechClient().req_object_storage(data_key='data/media.mp3', completion='sync')
-    res = ClovaSpeechClient().req_upload(file='C:\\Users\\PC\\Desktop\\testSample.mp3', completion='sync')
+    print(sys.argv[1])
+    res = ClovaSpeechClient().req_upload(file=sys.argv[1], completion='sync')
     res_json = json.loads(res.text)
     subtitle = open("subtitle.smi", 'w', encoding='utf-8')
     for seg in res_json["segments"]:

@@ -20,6 +20,7 @@ myFile.addEventListener('change', function (e) {
             html += '</tr>';
         }
         html += '</table>';
+        console.log(html)
         output.innerHTML = html;
 
         var btn = document.createElement('button');

@@ -14,6 +14,7 @@
         <button id="toHome_btn" onclick="location.href='/'"><img class="filter-blue menu_img" src="src/home.png" width="30" height="30" alt="홈">Home</button>
         <button id="toPlay_btn" onclick="location.href='play'"><img class="filter-blue menu_img" src="src/play.svg" width="30" height="30" alt="재생">Player</button>
         <button id="toEdit_btn" onclick="location.href='edit'"><img class="filter-blue menu_img" src="src/edit.png" width="30" height="30" alt="편집">Editer</button>
+        <button id="toUser_btn" onclick="location.href='user'" ><img class="menu_img" src="src/edit.png" width="30" height="30" alt="생성"> User</button>
       </div>
     </div>
     <div class="grid_container">
@@ -24,10 +25,32 @@
         </video>
       </div>
 
-      <div id="display-cues-1" class="display-cues">
-        <p id="start-point-1"><p>
-      </div>
+      <div class="display-cues">
+        <ul class="tabs">
+          <li class="tab-link current" data-tab="tab-1">자막1</li>
+          <li class="tab-link" data-tab="tab-2">자막_2</li>
+          <li class="tab-link" data-tab="tab-3">자막_3</li>
+        </ul>
 
+        <div id="tab-1" class="tab-content current">
+          <div id="display-cues-1">
+            <p id="start-point-1"></p>
+          </div>
+        </div>
+        
+        <div id="tab-2" class="tab-content">
+          <div id="display-cues-2">
+            <p id="start-point-2"></p>
+          </div>  
+        </div>
+
+        <div id="tab-3" class="tab-content">
+          <div id="display-cues-3">
+            <p id="start-point-3"></p>
+          </div>  
+        </div>
+      </div>
+    
       <div id="bar_area">
         <div class="filebox">
           <label for="video_file">동영상</label>
