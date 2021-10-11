@@ -25,14 +25,14 @@ app.post('/upload', function (req, res) {
 app.post('/auto_subtitle', function (req, res) {
     var params = req.body.src;
     console.log(params)
-    const result = spawn('python',['public/test.py', params]);
+    const result = spawn('python',['convert_vtt.py', params]);
 
     result.stdout.on('data',function(data){
-        console.log(data.toString())
+        console.log("done")
     })
 
     result.stderr.on('data', function(data) {
-        console.log(data.toString()); 
+        console.log("err"); 
     });
 });
 

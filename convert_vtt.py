@@ -91,6 +91,18 @@ class ClovaSpeechClient:
         response = requests.post(headers=headers, url=self.invoke_url + '/recognizer/upload', files=files)
         return response
 
+def convertToTime(time):
+    hours = time // 3600000
+    time = time - hours * 3600000
+    mins = time // 60000
+    time = time - mins * 60000
+    secs = time / 1000
+    str_secs = str('{0:06.3f}'.format(secs)).replace(".",",")
+
+    str_time = str('{0:02}'.format(hours)) + ":" + str('{0:02}'.format(mins)) + ":" + str_secs
+
+    return str_time
+
 
 if __name__ == '__main__':
     #res = ClovaSpeechClient().req_url(url=sys.argv[1], completion='sync')
@@ -98,6 +110,10 @@ if __name__ == '__main__':
     print(sys.argv[1])
     res = ClovaSpeechClient().req_upload(file=sys.argv[1], completion='sync')
     res_json = json.loads(res.text)
-    subtitle = open("subtitle.smi", 'w', encoding='utf-8')
+    subtitle = open("subtitle.vtt", 'w', encoding='utf-8')
+    num = 0
     for seg in res_json["segments"]:
-        subtitle.write(str(seg['start']) + "->" + str(seg['end']) + "\n" + seg['speaker']['name'] + " : " +seg['text'] + "\n")
+        start_time = convertToTime(seg['start'])
+        end_time = convertToTime(seg['end'])
+        num += 1
+        subtitle.write(str(num) +"\n"+ start_time + " --> " + end_time + "\n" + seg['speaker']['name'] + " - " + seg['text'] + "\n\n")
