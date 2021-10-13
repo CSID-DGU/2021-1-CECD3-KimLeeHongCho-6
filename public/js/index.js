@@ -183,8 +183,8 @@ $(document).ready(function () {
                     }
                 }
                 html += '</table>';
-                output.innerHTML = html;
-        
+                $("#odf_area").append(html);
+                
                 var btn = document.createElement('button');
                 btn.textContent = '저장';
         
@@ -237,20 +237,32 @@ $('#toUser_btn').hover(function(){
 
 
 $('#auto_bnt').click(function(){
+    $("#menu_select").css("display","none");
     $('#auto_area').css("display","block");
+    $('#auto_bnt').css({"background-color": "rgb(65, 70, 95)", "color" : "white"});
     $('#odf_area').css("display",'none');
+    $('#odf_bnt').css({"color": "rgb(65, 70, 95)", "background-color" : "white"});
     $('#user_area').css("display","none");
+    $('#user_bnt').css({"color": "rgb(65, 70, 95)", "background-color" : "white"});
 })
 
 $('#odf_bnt').click(function(){
+    $("#menu_select").css("display","none");
     $('#auto_area').css("display","none");
+    $('#auto_bnt').css({"color": "rgb(65, 70, 95)", "background-color" : "white"});
     $('#odf_area').css("display",'block');
+    $('#odf_bnt').css({"background-color": "rgb(65, 70, 95)", "color" : "white"});
     $('#user_area').css("display","none");
+    $('#user_bnt').css({"color": "rgb(65, 70, 95)", "background-color" : "white"});
 })
 
 $('#user_bnt').click(function(){
+    $("#menu_select").css("display","none");
     $('#auto_area').css("display","none");
+    $('#auto_bnt').css({"color": "rgb(65, 70, 95)", "background-color" : "white"});
     $('#odf_area').css("display",'none');
+    $('#odf_bnt').css({"color": "rgb(65, 70, 95)", "background-color" : "white"});
     $('#user_area').css("display","block");
+    $('#user_bnt').css({"background-color": "rgb(65, 70, 95)", "color" : "white"});
 })
 
