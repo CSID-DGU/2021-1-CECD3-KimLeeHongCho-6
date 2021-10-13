@@ -12,7 +12,8 @@ video_bnt.addEventListener('change', function (){
             'src' : video_file.name
         },
         dataType: 'JSON',            
-        success : function(res){ //
+        success : function(rnt){
+            console.log(rnt.text);
             console.log("success");
         }
     })

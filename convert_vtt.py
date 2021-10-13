@@ -1,3 +1,5 @@
+#-*-coding:utf-8-*-
+
 import requests
 import json
 import sys
@@ -107,13 +109,13 @@ def convertToTime(time):
 if __name__ == '__main__':
     #res = ClovaSpeechClient().req_url(url=sys.argv[1], completion='sync')
     # res = ClovaSpeechClient().req_object_storage(data_key='data/media.mp3', completion='sync')
-    print(sys.argv[1])
     res = ClovaSpeechClient().req_upload(file=sys.argv[1], completion='sync')
     res_json = json.loads(res.text)
-    subtitle = open("subtitle.vtt", 'w', encoding='utf-8')
+    subtitle = ""
     num = 0
     for seg in res_json["segments"]:
         start_time = convertToTime(seg['start'])
         end_time = convertToTime(seg['end'])
         num += 1
-        subtitle.write(str(num) +"\n"+ start_time + " --> " + end_time + "\n" + seg['speaker']['name'] + " - " + seg['text'] + "\n\n")
+        subtitle += (str(num) +"\n"+ start_time + " --> " + end_time + "\n" + seg['speaker']['name'] + " - " + seg['text'] + "\n\n")
+    print(subtitle)
