@@ -150,6 +150,10 @@ form{
     text-align: center;
 }
 
+#file_name{
+    display: inline;
+    margin-left : 10px;
+}
 
 .filebox label { 
     display: inline-block;

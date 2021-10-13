@@ -10,8 +10,4 @@ module.exports = function (app) {
     app.get('/edit', function (req, res) {
         res.render('edit.html');
     });
-
-    app.get('/user', function (req, res) {
-        res.render('user.html');
-    });
 }

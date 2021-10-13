@@ -160,6 +160,7 @@ $(document).ready(function () {
 
     $("#upload_file").on('change', function () {
         files = $("#upload_file")[0];
+        $("#file_name").text(files.files[0].name);
         var formData = new FormData();
         formData.append("upload_file", files.files[0])
         $.ajax({
