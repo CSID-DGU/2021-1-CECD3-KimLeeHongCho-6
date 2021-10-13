@@ -33,19 +33,22 @@
 
           <label for="subtitle_file">자막</label>
           <input type="file" id="subtitle_file"></input>
-
-          <form method='post' action='upload' enctype="multipart/form-data"></form>
-          <label for="upload_file">ODF 파일</label>
-          <input type='file' id='upload_file' name='upload_file'>
         </div>
         <div id=sub_container>
           <div id=auto_bnt><div>auto</div></div>
           <div id=odf_bnt>odf</div>
           <div id=user_bnt>user</div>
           <div id=sub>
-            <div id=auto_area style="display : none;"></div>
-            <div id=odf_area style="display : none;"></div>
-            <div id=user_area style="display : none;">
+            <div id=menu_select>메뉴를 선택하세요</div>
+            <div id=auto_area class=area style="display : none;"></div>
+            <div id=odf_area class=area style="display : none;">
+              <div class="filebox in_odf"> 
+                <form method='post' action='upload' enctype="multipart/form-data"></form>
+                <label for="upload_file">ODF 파일</label>
+                <input type='file' id='upload_file' name='upload_file'></input>
+              </div>
+            </div>
+            <div id=user_area class=area style="display : none;">
               <div id="output">
               <table id="user_sub" border="1">
                 <tr name='user_tr' id='tr_time_1'>

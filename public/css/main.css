@@ -142,10 +142,19 @@ body{
     display: inline;
 }
 
+form{
+    display:none;
+}
+
+.filebox{
+    text-align: center;
+}
+
+
 .filebox label { 
     display: inline-block;
     padding: .5em .75em; 
-    color: #999; 
+    color: rgb(153, 153, 153); 
     font-size: inherit;
     line-height: normal;
     vertical-align: middle;
@@ -156,8 +165,9 @@ body{
     border-radius: .25em;
 }
 
+
 .filebox input[type="file"] {
-    /* 파일 필드 숨기기 */ 
+    /* 파일 필드 숨기기 */
     position: absolute; 
     width: 1px; 
     height: 1px; 
@@ -171,13 +181,11 @@ body{
 #sub_container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 40px 60vh;
+    grid-template-rows: 40px 70vh;
     font-size: 1.5rem;
     font-weight: 500;
     text-align: center;
     gap : 1px;
-    
-
 }
 
 #auto_bnt{
@@ -186,7 +194,6 @@ body{
     background-color: white;
     color :rgb(65, 70, 95);
     cursor:pointer;
-
 }
 
 #auto_bnt:hover{
@@ -237,7 +244,6 @@ body{
     background-color: rgba(226, 231, 241, 0.877);
 }
 
-
 .highlight{ 
     font-weight : bold; 
     color:#FF0000; 
@@ -265,4 +271,9 @@ ul.tabs li.current{
 
 .tab-content.current{
 	display: inherit;
+}
+
+
+.area{
+    padding : 5px;
 }
