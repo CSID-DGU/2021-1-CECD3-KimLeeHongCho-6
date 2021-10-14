@@ -215,19 +215,19 @@ $(document).ready(function () {
 $('#toHome_btn').hover(function(){
     $(this).children('img').css("filter","invert(97%) sepia(0%) saturate(0%) hue-rotate(60deg) brightness(103%) contrast(103%)");
 },function(){
-    $(this).children('img').css("filter", "invert(39%) sepia(62%) saturate(270%) hue-rotate(190deg) brightness(89%) contrast(90%)");
+    $(this).children('img').css("filter", "invert(75%) sepia(58%) saturate(3550%) hue-rotate(176deg) brightness(90%) contrast(91%)");
 });
 
 $('#toPlay_btn').hover(function(){
     $(this).children('img').css("filter","invert(97%) sepia(0%) saturate(0%) hue-rotate(60deg) brightness(103%) contrast(103%)");
 },function(){
-    $(this).children('img').css("filter", "invert(39%) sepia(62%) saturate(270%) hue-rotate(190deg) brightness(89%) contrast(90%)");
+    $(this).children('img').css("filter", "invert(75%) sepia(58%) saturate(3550%) hue-rotate(176deg) brightness(90%) contrast(91%)");
 });
 
 $('#toEdit_btn').hover(function(){
     $(this).children('img').css("filter","invert(97%) sepia(0%) saturate(0%) hue-rotate(60deg) brightness(103%) contrast(103%)");
 },function(){
-    $(this).children('img').css("filter", "invert(39%) sepia(62%) saturate(270%) hue-rotate(190deg) brightness(89%) contrast(90%)");
+    $(this).children('img').css("filter", "invert(75%) sepia(58%) saturate(3550%) hue-rotate(176deg) brightness(90%) contrast(91%)");
 });
 
 $('#toUser_btn').hover(function(){
