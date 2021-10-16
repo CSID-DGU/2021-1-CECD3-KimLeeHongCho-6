@@ -25,20 +25,22 @@ app.post('/upload', function (req, res) {
 app.post('/auto_subtitle', function (req, res) {
     var params = req.body.src;
     console.log(params)
-    const result = spawn('python',['public/test.py', params]);
-
+    const result = spawn('python',['convert_vtt.py', params]);
+    
     result.stdout.on('data',function(data){
-        console.log(data.toString())
+        res.json({"text":data.toString()})
+        console.log('auto subtitle job is done')
     })
 
     result.stderr.on('data', function(data) {
-        console.log(data.toString()); 
+        console.log("err"); 
     });
 });
 
 
 var server = app.listen(3000,function(){
     console.log("Express server has started on port 3000")
+    console.log("안녕하세요")
 });
 
 
