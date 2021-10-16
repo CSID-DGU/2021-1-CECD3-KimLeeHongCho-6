@@ -9,13 +9,15 @@
     <title>subtitle system</title>
   <body>
     <div id="title_container">
-      <div class=title><img src="src/closed-captioning-solid.svg" class="filter-blue"  style="margin-right: 1vw;" width="50" height="50">자막 통합생성 시스템</div>
+      <div class=title><img src="src/closed-captioning-solid.svg" class="filter-blue" style="margin-right: 1vw;" width="45"
+          height="45">SUBTITLE SYSTEM</div>
       <div class=menu>
         <button id="toHome_btn" onclick="location.href='/'"><img class="filter-blue menu_img" src="src/marker-solid.svg" width="30" height="30" alt="홈">Create</button>
         <button id="toPlay_btn" onclick="location.href='play'"><img class="filter-blue menu_img" src="src/play.svg" width="30" height="30" alt="재생">Player</button>
         <button id="toEdit_btn" onclick="location.href='edit'"><img class="filter-blue menu_img" src="src/edit.png" width="30" height="30" alt="편집">Editer</button>
       </div>
     </div>
+    <div class=line></div>
     <div class="grid_container">
       <div id="video_area">
         <video class="video_content" id="video-1" controls>
@@ -51,6 +53,7 @@
       </div>
     
       <div id="bar_area">
+        <div class="text">영상재생</div>
         <div class="filebox">
           <label for="video_file">동영상</label>
           <input type="file" id="video_file"></input>
@@ -60,12 +63,14 @@
         </div>
 
         <div id = "s_area" class="search_area">
-        <div class="text">자막검색</div><input id="search_text" type="text">
+        <!--<div class="text">자막검색</div>-->
+        <input id="search_text" type="text">
         <button id="search_btn" onclick="onSearchLoad(1);">자막 검색</button>
         <p id="start-search"><p></p>
       </div>
       </div>
     </div>
+    <div class=line></div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="js/index.js" type="text/javascript"></script>

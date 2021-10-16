@@ -1,4 +1,4 @@
-html{font-size: 10px;}
+html{font-size: 62.5%;}
 
 body{
     font-family: 'Noto Sans KR', sans-serif;
@@ -11,9 +11,9 @@ body{
     display:flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: rgb(255, 255, 255,0);
+    background-color: rgba(240, 217, 217, 0);
     padding:10px;
-    height: 10vh;
+    height: 12vh;
     align-items: flex-end;
     z-index: 10;
     /*box-shadow: inset 0px 30px 30px rgb(218, 238, 255);*/
@@ -25,21 +25,22 @@ body{
      color:rgb(70, 70, 70);
      font-size: 3rem;
      margin-left:1vw;
+     margin-top: 5vh;
      display:inline;
      font-weight: bolder;
      /*text-shadow: rgb(58, 58, 58) 0px 0px 1px;*/
  }
  .menu{
-    margin-top: .5px;
+    margin-top: 5px;
     margin-right:1vw;
  }
 .menu button{
-    background-color : rgb(255, 255, 255, 0);
-    margin-right: -5px;
+    background-color : rgb(255, 255, 255, 0.5);
+    margin-right: 0px;
     border: 0px solid rgb(165, 219, 255);
     color:rgb(104, 195, 255);
     padding: 5px;
-    width: 150px;
+    width: 8vw;
     font-size: 1.5rem;
 }
 .menu button:hover{
@@ -62,16 +63,16 @@ body{
 
 .grid_container{
     display: grid;
-    grid-template-columns: 40vw 40vw 20vw;
+    grid-template-columns: 1fr 1fr 300px;
     grid-template-rows: 80vh;
     width: 100vw;
-    background-color: rgb(255, 255, 255);
     padding-top : 10px;
     padding-bottom: 10px;
+    gap : 3px;
 }
 
 .line{
-    background-color : rgb(93, 163, 230);
+    background-color : rgb(174, 217, 255);
     width: 100vw;
     height: 5px;
 }
@@ -92,7 +93,7 @@ body{
 #bar_area{
     grid-column: 3/4;
     grid-row:1/2;
-    background-color: rgb(96, 116, 139);
+    background-color: rgba(59, 92, 131, 0.555);
     z-index: 1;
     padding: 10px;
     max-width: 100%;
@@ -102,10 +103,11 @@ body{
 .search_area{
     grid-column: 3/4;
     grid-row:1/2;
-    background-color: rgb(172, 172, 172);
+    background-color: rgb(182, 222, 255);
     z-index: 1;
     padding : 10px;
-
+    position: relative;
+    height: 90%;
     text-align: left;
     align-self: right;
     overflow-y: scroll;
@@ -120,21 +122,23 @@ body{
 
 .text{
     display: inline;
+    font-size: 2.1rem;
+    font-weight: 700;
     margin-right: 5px;
     color: #FFF;
 }
 
 #search_text{
-    width: 80%;
+    width: 70%;
 }
 
 .display-cues {
     position: absolute; 
-    top: 12vh; 
-    color: #FFF; 
+    top: 14vh; 
+    color: rgb(0, 0, 0); 
     text-align: left;
     align-self: right;
-    font-size: 20px;
+    font-size: 1.5rem;
     background-color: rgba(221, 221, 221, 0.452);
     width: 30%;
     max-width : 80vw;
@@ -161,6 +165,7 @@ form{
 }
 
 .filebox{
+    display: inline;
     text-align: center;
 }
 
@@ -197,16 +202,19 @@ form{
 }
 
 #sub_container{
+    position:relative;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 40px 69vh;
+    grid-template-rows: 40px 65vh;
     font-size: 1.5rem;
     font-weight: 500;
     text-align: center;
     gap : 2px;
+    max-height: 70%;
 }
 
 #auto_bnt{
+    vertical-align: middle;
     grid-column: 1/2;
     grid-row:1/2;
     background-color: white;
@@ -216,6 +224,7 @@ form{
 }
 
 #auto_bnt:hover{
+    vertical-align: middle;
     grid-column: 1/2;
     grid-row:1/2;
     background-color: rgb(76, 91, 107);
@@ -224,6 +233,7 @@ form{
 }
 
 #odf_bnt{
+    vertical-align: middle;
     grid-column: 2/3;
     grid-row:1/2;
     background-color: white;
@@ -233,6 +243,7 @@ form{
 }
 
 #odf_bnt:hover{
+    vertical-align: middle;
     grid-column: 2/3;
     grid-row:1/2;
     background-color: rgb(76, 91, 107);
@@ -241,6 +252,7 @@ form{
 }
 
 #user_bnt{
+    vertical-align: middle;
     grid-column: 3/4;
     grid-row:1/2;
     background-color: white;
@@ -250,6 +262,7 @@ form{
 }
 
 #user_bnt:hover{
+    vertical-align: middle;
     grid-column: 3/4;
     grid-row:1/2;
     background-color: rgb(76, 91, 107);
@@ -259,7 +272,7 @@ form{
 #sub{
     grid-column: 1/4;
     grid-row:2/3;
-    background-color: rgb(217, 238, 255);
+    background-color: rgb(182, 222, 255);
     overflow-y: scroll;
     font-weight: normal;
 }
@@ -286,7 +299,7 @@ ul.tabs li.current{
 
 .tab-content{
 	display: none;
-	background: #ededed;
+	background: #ededed00;
 }
 
 .tab-content.current{
