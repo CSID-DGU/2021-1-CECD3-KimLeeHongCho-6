@@ -9,14 +9,14 @@
     <title>subtitle system</title>
   <body>
     <div id="title_container">
-      <div class=title><img src="src/closed-captioning-solid.svg" class="filter-blue" style="margin-right: 1vw;" width="50" height="50">자막 통합생성 시스템</div>
+      <div class=title><img src="src/closed-captioning-solid.svg" class="filter-blue" style="margin-right: 1vw;" width="45" height="45">SUBTITLE SYSTEM</div>
       <div class=menu>
-        <button id="toHome_btn" onclick="location.href='/'"><img class="filter-blue menu_img" src="src/home.png" width="30" height="30" alt="홈">Home</button>
+        <button id="toHome_btn" onclick="location.href='/'"><img class="filter-blue menu_img" src="src/marker-solid.svg" width="30" height="30" alt="홈">Create</button>
         <button id="toPlay_btn" onclick="location.href='play'"><img class="filter-blue menu_img" src="src/play.svg" width="30" height="30" alt="재생">Player</button>
-        <button id="toEdit_btn" onclick="location.href='edit'"><img class="filter-blue menu_img" src="src/edit.png" width="30" height="30" alt="편집">Editer</button>
-        <button id="toUser_btn" onclick="location.href='user'" ><img class="menu_img" src="src/edit.png" width="30" height="30" alt="생성"> User</button>
+        <button id="toEdit_btn" onclick="location.href='edit'"><img class="filter-blue menu_img" src="src/edit.png" width="30" height="30" alt="편집">Editor</button>
       </div>
     </div>
+    <div class=line></div>
     <div class="grid_container">
       <div id="video_area">
         <video class="video_content" id="video-1" controls>
@@ -30,20 +30,20 @@
 
       <!--txt파일 불러와서 수정하고 다시 저장하는 기능-->
         <div id="bar_area">
-            <div class="text">자막수정</div>
-            <input type="file" id="myFile">
-            <div id="output"></div>
+          <div class="text">자막수정</div>
+          <div class="filebox">
+            <label for="video_file">동영상</label>
+            <input type="file" id="video_file"></input>
+          
+            <label for="subtitle_file">자막</label>
+            <input type="file" id="subtitle_file"></input>
+          </div>
+          <input type="file" id="myFile">
+          <div id="output"></div>
         </div>
-
-      <div>
-        <input type="file" id="video_file"></input>
-        <button id="video_btn" onclick="load_video();">동영상 넣기</button>
-      </div>
-      <div>
-        <input type="file" id="subtitle_file"></input>
-        <button id="subtitle_btn" onclick="load_Subtitle();">자막 넣기</button>
-      </div>
+        
     </div>
+    <div class=line></div>
 
 
     <!--여기서부터-->
