@@ -171,7 +171,7 @@ body{
 #sub_container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 40px 1fr;
+    grid-template-rows: 40px 60vh;
     font-size: 1.5rem;
     font-weight: 500;
     text-align: center;
@@ -231,10 +231,18 @@ body{
 
 }
 
+#sub{
+    grid-column: 1/4;
+    grid-row:2/3;
+    background-color: rgba(226, 231, 241, 0.877);
+}
+
+
 .highlight{ 
     font-weight : bold; 
     color:#FF0000; 
 }
+<<<<<<< HEAD
 
 ul.tabs{
 	list-style: none;
@@ -259,3 +267,5 @@ ul.tabs li.current{
 .tab-content.current{
 	display: inherit;
 }
+=======
+>>>>>>> origin/Issue#7
