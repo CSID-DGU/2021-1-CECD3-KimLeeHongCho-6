@@ -242,7 +242,6 @@ body{
     font-weight : bold; 
     color:#FF0000; 
 }
-<<<<<<< HEAD
 
 ul.tabs{
 	list-style: none;
@@ -267,5 +266,3 @@ ul.tabs li.current{
 .tab-content.current{
 	display: inherit;
 }
-=======
->>>>>>> origin/Issue#7
