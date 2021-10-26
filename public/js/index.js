@@ -229,9 +229,7 @@ $('#toUser_btn').hover(function(){
     $(this).children('img').css("filter","invert(97%) sepia(0%) saturate(0%) hue-rotate(60deg) brightness(103%) contrast(103%)");
 },function(){
     $(this).children('img').css("filter", "invert(39%) sepia(62%) saturate(270%) hue-rotate(190deg) brightness(89%) contrast(90%)");
-<<<<<<< HEAD
-});
-=======
+
 });
 
 
@@ -252,5 +250,3 @@ $('#user_bnt').click(function(){
     $('#odf_area').css("display",'none');
     $('#user_area').css("display","block");
 })
-
->>>>>>> 55a909dde875f0906e3fe6e9a7e56fed9999b005
