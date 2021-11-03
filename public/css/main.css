@@ -314,3 +314,11 @@ ul.tabs li.current{
 table{
     background-color: #fff;
 }
+
+#user_sub{
+    width: 100%;
+}
+
+table button{
+    font-size: 1.2rem;
+}

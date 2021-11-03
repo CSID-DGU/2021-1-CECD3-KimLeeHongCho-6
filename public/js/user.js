@@ -5,9 +5,11 @@ var num = 1;
 
 function addRow() {
     num++;
-    var addStaffText = "<tr name='user_tr' id='tr_time_"+num+"'><td>타임라인"+'</td> <td name="time" id="td_'+num+'" contenteditable="true">시간</td>'+
-    '<td><button name="start" onclick="s_time('+num+');">시작시간</button><button name="end" onclick="e_time('+num+');">종료시간</button></td></tr>'+
-    "<tr name='user_tr' id='tr_sub_'"+num+"'><td>자막"+'</td> <td contenteditable="true">자막 입력</td><td><button onclick="delRow('+num+', this);">삭제</button></td></tr>';
+    var addStaffText = "<tr name='user_tr' id='tr_time_" + num +"'>"+
+                        '<td> '+num+' </td><td onclick="time_stamp(this)" contenteditable="true">클릭시 시간입력</td><td></td></tr>'+ 
+                        "<tr name='user_tr' id='tr_sub_'"+num+">"+
+                        '<td> '+num+' </td><td contenteditable=true">자막 입력</td><td><button onclick="delRow('+num+', this);">삭제</button></td>'+
+                        '</tr>';
 
     var trHtml = $( "tr[name=user_tr]:last" );
 
