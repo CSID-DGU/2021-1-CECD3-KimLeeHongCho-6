@@ -109,6 +109,18 @@ def convertToTime(time):
     return str_time
 
 
+def convertToTime(time):
+    hours = time // 3600000
+    time = time - hours * 3600000
+    mins = time // 60000
+    time = time - mins * 60000
+    secs = time / 1000
+    str_secs = str('{0:06.3f}'.format(secs)).replace(".",",")
+
+    str_time = str('{0:02}'.format(hours)) + ":" + str('{0:02}'.format(mins)) + ":" + str_secs
+
+    return str_time
+
 if __name__ == '__main__':
     #res = ClovaSpeechClient().req_url(url=sys.argv[1], completion='sync')
     # res = ClovaSpeechClient().req_object_storage(data_key='data/media.mp3', completion='sync')
