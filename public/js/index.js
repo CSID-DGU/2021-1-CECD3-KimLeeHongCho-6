@@ -219,7 +219,7 @@ $(document).ready(function () {
             contentType: false,
             data: formData,
             success: function (rtn) {
-                $('#odf_area').empty();
+                $('#odf_area').remove("table, #save_bnt");
                 const message = rtn.text;
                 var output = document.getElementById('odf_area');
                 var line = message.replace(/\r\n/g, '\n').split('\n');
@@ -237,6 +237,7 @@ $(document).ready(function () {
                 $("#odf_area").append(html);
                 
                 var btn = document.createElement('button');
+                bnt.id = "save_bnt"
                 btn.textContent = '저장';
         
                 btn.addEventListener('click', function (e) {
