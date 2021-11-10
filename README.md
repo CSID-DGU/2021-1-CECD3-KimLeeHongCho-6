@@ -25,7 +25,8 @@
 
 
 ## 4. 시스템 구성도
-![시스템구성도](https://user-images.githubusercontent.com/43579755/122647084-703ad680-d15d-11eb-94bb-a93360878478.PNG)
+![시스템구성도](https://user-images.githubusercontent.com/62579567/141189318-dcb847ca-b9eb-4e62-b821-e237c0d6c460.png)
+
 
 
 
@@ -45,36 +46,44 @@ npm start
 
 
 
-## 6. 진행상황
+## 6. 결과물
 
 - 웹 구현
-1) 실행 시 첫 화면
-![1](https://user-images.githubusercontent.com/43579755/122676098-62498c00-d217-11eb-8605-8b367ac19337.PNG)
+
+1) 자막을 생성하는 CREATE 페이지
+   * 기본 화면
+   ![image](https://user-images.githubusercontent.com/62579567/141190404-e43ba6ab-15a2-4d9d-b648-800a61beaa34.png)
+   
+   * 음성인식 API를 사용한 자동 자막 생성
+   ![image](https://user-images.githubusercontent.com/62579567/141191263-9e05085f-a474-4e9a-a9d0-7c7652552496.png)
+   ![image](https://user-images.githubusercontent.com/62579567/141191683-d9873ad5-fb66-4572-9635-3a2b791e0ddb.png)
+   
+   * 사용자가 가지고 있는 odf 파일을 사용한 자막 생성
+   ![image](https://user-images.githubusercontent.com/62579567/141191936-d35190e9-7f26-44fe-a69b-67802e13aec5.png)
+      + 선택된 odf 파일에서 텍스트만 추출
+      ![image](https://user-images.githubusercontent.com/62579567/141192051-d67ec09b-3966-480f-930c-960882c157af.png)
+      
+   * 사용자 생성 자막
+   ![image](https://user-images.githubusercontent.com/62579567/141192253-55db1381-0988-4d81-a1dd-0cefdb35604b.png)
+
+2) 영상과 자막을 출력하는 영상 플레이어 PLAYER 페이지
+   * 영상 플레이어 기능 - 자막 오버레이, 영상 시간대 자막 하이라이트, 자막 검색, 선택 자막 이동
+   ![image](https://user-images.githubusercontent.com/62579567/141192664-c667bbe8-98e7-40bb-a545-39ab17b0e71a.png)
+   
+      + 동영상이 재생됨에 따라 해당되는 부분의 자막이 녹색으로 표시됨
+      ![3](https://user-images.githubusercontent.com/43579755/122676135-8b6a1c80-d217-11eb-8806-98a84ff41e3c.gif)
+      
+      + 자막 검색 기능
+      ![image](https://user-images.githubusercontent.com/62579567/141193077-d1b6543c-1565-41f5-818f-d2e43a577a20.png)
+
+      + 선택한 자막(문장)에 해당하는 부분부터 동영상 재생 가능
+      ![4](https://user-images.githubusercontent.com/43579755/122699747-f56cdb00-d284-11eb-9e88-51d31827e968.gif)
 
 
-2) 사용자가 로컬 저장소에서 동영상 파일과 자막 파일 불러오기 가능
-![2](https://user-images.githubusercontent.com/43579755/122676111-6ecde480-d217-11eb-8565-7f5fe3c1b052.PNG)
+3) 자막을 편집하는 EDITOR 페이지
+   * ![image](https://user-images.githubusercontent.com/62579567/141193434-d69af2f9-4880-4b67-b7a3-89f1b822bbd7.png)
 
 
-3) 동영상이 재생됨에 따라 해당되는 부분의 자막이 녹색으로 표시됨
-![3](https://user-images.githubusercontent.com/43579755/122676135-8b6a1c80-d217-11eb-8806-98a84ff41e3c.gif)
-
-
-4) 선택한 자막(문장)에 해당하는 부분부터 동영상 재생 가능
-![4](https://user-images.githubusercontent.com/43579755/122699747-f56cdb00-d284-11eb-9e88-51d31827e968.gif)
-
-
-- 음성 인식 자막 파일 생성
-
-1) 웹 표준 자막 파일 형식 vtt 자막 생성
-
-![image](https://user-images.githubusercontent.com/62579567/122773103-02201c00-d2e3-11eb-99d8-6d47d1e8b0d7.png)
-
-순서, 타임 라인, 화자 인식 및 자막 텍스트까지 출력 (vtt 자막 형식)
-
-2) 자막 파일 실행 결과
-
-![image](https://user-images.githubusercontent.com/62579567/122773441-53301000-d2e3-11eb-81a0-d92cc5ae873a.png)
 
 ## 7. 팀원
 김윤호
