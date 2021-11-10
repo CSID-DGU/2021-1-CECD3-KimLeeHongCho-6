@@ -237,7 +237,7 @@ $(document).ready(function () {
                 $("#odf_area").append(html);
                 
                 var btn = document.createElement('button');
-                bnt.id = "save_bnt"
+                btn.id = "save_bnt"
                 btn.textContent = '저장';
         
                 btn.addEventListener('click', function (e) {
