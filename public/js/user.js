@@ -8,7 +8,7 @@ function addRow() {
     var addStaffText = "<tr name='user_tr' id='tr_time_" + num +"'>"+
                         '<td> '+num+' </td><td onclick="time_stamp(this)" contenteditable="true">클릭시 시간입력</td><td></td></tr>'+ 
                         "<tr name='user_tr' id='tr_sub_'"+num+">"+
-                        '<td> '+num+' </td><td contenteditable=true">자막 입력</td><td><button onclick="delRow('+num+', this);">삭제</button></td>'+
+                        '<td> '+num+' </td><td contenteditable="true">자막 입력</td><td><button onclick="delRow('+num+', this);">삭제</button></td>'+
                         '</tr>';
 
     var trHtml = $( "tr[name=user_tr]:last" );
