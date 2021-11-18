@@ -2,6 +2,7 @@ html{font-size: 62.5%;}
 
 body{
     font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
     background-image: url('../src/double-bubble-outline.png');
     background-repeat: repeat;
     /*box-shadow: inset 0px -30px 20px rgba(0, 95, 179, 0.5)*/
@@ -21,13 +22,12 @@ body{
 
 .title{
      text-align: left;
-     font-weight:500;
+     font-family: 'Maven Pro', sans-serif;
      color:rgb(70, 70, 70);
-     font-size: 3rem;
+     font-size: 5rem;
      margin-left:1vw;
      margin-top: 5vh;
      display:inline;
-     font-weight: bolder;
      /*text-shadow: rgb(58, 58, 58) 0px 0px 1px;*/
  }
  .menu{
@@ -207,7 +207,6 @@ form{
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 40px 65vh;
     font-size: 1.5rem;
-    font-weight: 500;
     text-align: center;
     gap : 2px;
     max-height: 70%;
@@ -285,7 +284,6 @@ ul.tabs{
 	list-style: none;
 }
 ul.tabs li{
-    background: #ededed;
 	color: #222;
 	display: inline-block;
 	cursor: pointer;

@@ -14,9 +14,15 @@ myFile.addEventListener('change', function (e) {
         var html = '<table border="1">';
         for (var i = 0; i < line.length; i++) {
             html += '<tr>';
-            for (var j = 0; j < 1; j++) {
-                html += '<td>' + (i + 1) + '</td><td contenteditable="true">' + line[i] + '</td>';
-            }
+            
+                var cnt=line[i].indexOf("-->");
+                if(cnt==-1){
+                    html += '<td>' + (i + 1) + '</td><td contenteditable="true">' + line[i] + '</td>';
+                }
+                else{
+                    html += '<tr><td>' + i + '</td><td onclick="time_stamp(this)" contenteditable="true">'+ line[i] +'</td>';
+                }
+
             html += '</tr>';
         }
         html += '</table>';
@@ -43,3 +49,33 @@ myFile.addEventListener('change', function (e) {
     };
     reader.readAsText(file);
 });
+
+var video_bnt = document.getElementById('video_file');
+video_bnt.addEventListener('change', function (){
+
+    var video_file = video_bnt.files[0];
+    var video_content = document.getElementById("video-1");
+    video_content.src = window.URL.createObjectURL(video_file);
+})
+
+function time_stamp(e){
+    var str=e.textContent;
+    var cnt=str.match(/:/g);
+
+    var time = document.getElementById('video-1').currentTime;
+    
+    var hour = parseInt(time/3600) < 10 ? '0'+ parseInt(time/3600) : parseInt(time/3600); 
+    var min = parseInt((time%3600)/60) < 10 ? '0'+ parseInt((time%3600)/60) : parseInt((time%3600)/60);
+    var sec = time % 60 < 10 ? '0'+time % 60 : time % 60;
+    var s_sec = ''+sec;
+    
+    if(cnt==null){
+        e.textContent = hour+":"+min+":" + s_sec.substr(0,6) +" --> ";
+    }
+    else if(cnt.length!=2){
+        e.textContent = hour + ":" + min + ":" + s_sec.substr(0, 6) + " --> ";
+    }
+    else{
+        e.textContent = str + hour + ":" + min + ":" + s_sec.substr(0, 6);
+    }
+}
