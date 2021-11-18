@@ -139,10 +139,10 @@ $(document).ready(function () {
                 var html = '<table border="1" style="width:100%" >';
                 for (var i = 1; i < (line.length *2); i+=2) {
                     if(line[(i+1)/2]!=undefined && line[(i+1)/2]!=''){
-                        html += '<tr><td>' + i + '</td><td onclick="time_stamp(this)" contenteditable="true">클릭시 시간입력</td>';
+                        html += '<tr><td onclick="time_stamp(this)" contenteditable="true">클릭시 시간입력</td></tr>';
                         html += '<tr>'
-                        html += '<td>' + (i + 1) + '</td><td contenteditable="true">' + line[(i+1)/2] + '</td>';
-                        html += '</tr>';
+                        html += '<td contenteditable="true">' + line[(i+1)/2] + '</td>';
+                        html += '</tr><tr><td contenteditable="true"></td></tr>';
                     }
                 }
                 html += '</table>';
@@ -155,8 +155,9 @@ $(document).ready(function () {
                 btn.addEventListener('click', function (e) {
                     var tbl = document.querySelector('#odf_area table');
                     var arr = [];
+                    arr.push("WEBVVT FILE\n");
                     for (var i = 0; i < tbl.rows.length; i++) {
-                        arr.push(tbl.rows[i].cells[1].textContent);
+                        arr.push(tbl.rows[i].cells[0].textContent);
                     }
                     var txt = arr.join('\r\n');
                     var blob = new Blob([txt], { type: 'text/plain' });
