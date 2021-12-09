@@ -115,7 +115,7 @@ def convertToTime(time):
     mins = time // 60000
     time = time - mins * 60000
     secs = time / 1000
-    str_secs = str('{0:06.3f}'.format(secs)).replace(".",",")
+    str_secs = str('{0:06.3f}'.format(secs)).replace(".",".")
 
     str_time = str('{0:02}'.format(hours)) + ":" + str('{0:02}'.format(mins)) + ":" + str_secs
 
